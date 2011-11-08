@@ -334,7 +334,7 @@ bool CCECProcessor::SetPhysicalAddress(uint16_t iPhysicalAddress)
   if (!m_logicalAddresses.empty() && m_busDevices[m_logicalAddresses.primary])
   {
     m_busDevices[m_logicalAddresses.primary]->SetPhysicalAddress(iPhysicalAddress);
-    return m_busDevices[m_logicalAddresses.primary]->TransmitPhysicalAddress();
+    return m_busDevices[m_logicalAddresses.primary]->TransmitPhysicalAddress() && m_busDevices[m_logicalAddresses.primary]->TransmitActiveView();
   }
   return false;
 }
